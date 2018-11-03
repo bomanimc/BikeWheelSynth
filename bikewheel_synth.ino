@@ -25,20 +25,17 @@ void loop() {
   int reedValue = digitalRead(REED_PIN);
 
   if (stepCounter % WINDOW_SIZE_MS == 0) {
-     Serial.print("Count: ");
-     Serial.println(reedCounter);
+     printReading("Count", reedCounter);
 
      // Calculate the actual RPM value    
      rpm = (reedCounter * 60000) / WINDOW_SIZE_MS;
      reedCounter = 0;
-     Serial.print("RPM: ");
-     Serial.println(rpm);
+     printReading("RPM", rpm);
 
      // Calculate a values mapped to analog range   
      normalizedRPM = (int)((rpm / ROUGH_MAX_RPM) * 255);
      analogWrite(ANALOG_PIN, normalizedRPM);
-     Serial.print("Normalized RPM: ");
-     Serial.println(normalizedRPM);
+     printReading("Normalized RPM", normalizedRPM);
 
      Serial.println();
   }
@@ -63,6 +60,11 @@ void blinkOnRead(int reedValue) {
 
 void handleReading() {
   reedCounter++;
+}
+
+void printReading(String text, int value) {
+  Serial.print(text + ": ");
+  Serial.println(value);
 }
 
 
