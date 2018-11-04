@@ -1,8 +1,9 @@
 const int REED_PIN = 2; // Pin connected to reed switch
 const int LED_PIN = 13; // LED pin - active-high
 const int ANALOG_PIN = 11;
-const int WINDOW_SIZE_MS = 500;
-const int ROUGH_MAX_RPM = 800;
+const int WINDOW_SIZE_MS = 1000;
+const int ROUGH_MAX_RPM = 300;
+const int NUM_MAGNETS = 2;
 
 unsigned long stepCounter = 0;
 float reedCounter = 0;
@@ -28,7 +29,7 @@ void loop() {
      printReading("Count", reedCounter);
 
      // Calculate the actual RPM value    
-     rpm = (reedCounter * 60000) / WINDOW_SIZE_MS;
+     rpm = ((reedCounter / NUM_MAGNETS) * 60000) / WINDOW_SIZE_MS;
      reedCounter = 0;
      printReading("RPM", rpm);
 
