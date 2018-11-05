@@ -1,5 +1,5 @@
 # Bike Wheel Synth
-This project uses the RPM (revolutions per minute) of a bike wheel to control the intensity of effects in Ableton. You can see a tutorial video for this project on [YouTube]().
+This project uses the RPM (revolutions per minute) of a bike wheel to control the intensity of effects in Ableton. You can see a tutorial video for this project on [YouTube](https://www.youtube.com/watch?v=w4CTSO9HesA).
 
 ### Materials
 - Arduino (2)
